@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+        var score = 0;
+
+        function checkAnswer(inputId, answers) {
+            var userAnswer = document.getElementById(inputId).value;
+            userAnswer = userAnswer.toLowerCase();
+            for (var i = 0; i < answers.length; i++) {
+                if (userAnswer == answers[i]) {
+                    score++;
+                    break;
+                }
+            }
+        }
+
+        function checkAnswers() {
+
+            checkAnswer("userAnswer1", ["сон", "сноведение"]);
+            checkAnswer("userAnswer2", ["морской", "укус акулы"]);
+            checkAnswer("userAnswer3", ["шахматный", "мертвый"]);
+
+            alert("Вы отгадали " + score + " загадок");
+
+        }
+    </script>
+    <title>Загадки</title>
+</head>
+
+<body>
+    <header class="header-page">
+        <div class="header-wrp">
+            <a href="index.html" class="header-logo">
+                <img src="img/sharemanagerhandworldglobenetwork_sharemanager_mano_mundo_glob_6018.png" alt=""
+                    class="logo">
+            </a>
+            <span class="name">Личная страница студента</span>
+        </div>
+        <div class="header-menu-wrp">
+            <nav class="menu">
+                <ul class="menu-list">
+                    <li class="menu-item"><a class="menu-item-link" href="index.html">Главная</a></li>
+                    <!--  <li class="menu-item"><a  class="menu-item-link" href="puzzle.html">Загадки</a></li>-->
+                    <li class="menu-item"><a class="menu-item-link" href="guess.html">Угадай-ка</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main-content puzzle-content">
+        <!--  <div class="content-wrap">-->
+        <span class="puzzle-h">Игра в загадки</span>
+        <div class="content">
+            
+
+                <div class="box">
+
+                    <span class="box-txt">Что можно увидеть с закрытыми глазами?</span>
+                    <input class="box-input" type="text" id="userAnswer1">
+                </div>
+                <div class="box">
+                    <span class="box-txt">Какой болезнью никто не болеет на суше?</span>
+                    <input class="box-input" type="text" id="userAnswer2">
+                </div>
+                <div class="box">
+                    <span class="box-txt">Какой конь не ест овса?</span>
+                    <input class="box-input" type="text" id="userAnswer3">
+                   <!--  <a href=onClick="checkAnswers();">Ответить</a>--> 
+                    <button class="btn-answer" onclick="checkAnswers();" href ="#" id="userAnswer3">Ответить</button>
+
+                </div>
+
+            
+        </div>
+        <!--  </div>-->
+    </main>
+    <footer class="footer-page">
+        <span class="footer-txt">Все права защищены &COPY;</span>
+    </footer>
+</body>
+
+</html>

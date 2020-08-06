@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Угадай-ка</title>
+    <script type="text/javascript">
+        var answer = parseInt(Math.random() * 100);
+        var tryCount = 0;
+        var maxTryCount = 3;
+
+        function readInt() {
+            var number = document.getElementById("userAnswer").value;
+            return parseInt(number);
+            // return +document.getElementById("userAnswer").value;
+        }
+
+        function write(text) {
+            document.getElementById("info").innerHTML = text;
+        }
+
+        function hide(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        function guess() {
+            tryCount++;
+
+            var userAnswer = readInt();
+            if (userAnswer == answer) {
+                write("<b>Поздравляю, вы угадали!</b>");
+                hide("button");
+                hide("userAnswer");
+            } else if (tryCount >= maxTryCount) {
+                write("Вы проиграли<br>Правильный ответ: " + answer);
+                hide("button");
+                hide("userAnswer");
+            } else if (userAnswer > answer) {
+                write("Вы ввели слишком большое число<br>Попробуйте еще раз. Введите число от 1 до 100");
+            } else if (userAnswer < answer) {
+                write("Вы ввели слишком маленькое число<br>Попробуйте еще раз. Введите число от 1 до 100");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header class="header-page">
+        <div class="header-wrp">
+            <a href="index.html" class="header-logo">
+                <img src="img/sharemanagerhandworldglobenetwork_sharemanager_mano_mundo_glob_6018.png" alt=""
+                    class="logo">
+            </a>
+            <span class="name">Личная страница студента</span>
+        </div>
+        <div class="header-menu-wrp">
+            <nav class="menu">
+                <ul class="menu-list">
+                    <li class="menu-item"><a class="menu-item-link" href="index.html">Главная</a></li>
+                    <li class="menu-item"><a class="menu-item-link" href="puzzle.html">Загадки</a></li>
+                    <!--  <li class="menu-item"><a class="menu-item-link" href="#">Угадай-ка</a></li>-->
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main-content puzzle-content">
+        <span class="puzzle-h">Угадай-ка</span>
+
+        <div class="box">
+
+            <span class="box-txt" id="info">Угадайте число от 0 до 100</span>
+            <input class="box-input" type="text" id="userAnswer">
+
+            <button class="btn-answer" onclick="guess();" href="#" id="button">Ответить</button>
+        </div>
+
+
+
+
+    </main>
+    <footer class="footer-page">
+        <span class="footer-txt">Все права защищены &COPY;</span>
+    </footer>
+</body>
+
+</html>
